@@ -1,8 +1,8 @@
-import path from 'path'
+const path = require('path')
 
 module.exports = {
   entry: {
-    javascript: './src/index.js',
+    javascript: './src/index.jsx',
     html: './public/index.html',
   },
   output: {
