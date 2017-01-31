@@ -2,7 +2,7 @@ import path from 'path'
 
 module.exports = {
   entry: {
-    javascript: './index.js',
+    javascript: './src/index.js',
     html: './public/index.html',
   },
   output: {
