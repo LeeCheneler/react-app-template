@@ -5,8 +5,10 @@
   "scripts": {
     "start": "webpack-dev-server --hot",
     "build": "webpack",
-    "test": "eslint . --ext .js,.jsx && stylelint \"*/**/*.scss\" --syntax scss && jest",
-    "coverage": "jest --coverage"
+    "test": "jest",
+    "test-watch": "jest --watch",
+    "coverage": "jest --coverage",
+    "lint": "eslint . --ext .js,.jsx && stylelint \"*/**/*.scss\" --syntax scss &&"
   },
   "dependencies": {
     "easy-css": "^1.0.4",
