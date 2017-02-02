@@ -14,10 +14,10 @@ const paths = {
 }
 
 const common = {
-  entry: {
-    javascript: path.join(paths.src, '/index.jsx'),
-    html: path.join(paths.public, '/index.html')
-  },
+  entry: [
+    'babel-polyfill',
+    path.join(paths.src, '/index.jsx')
+  ],
   output: {
     filename: '[hash].bundle.js',
     path: paths.dest
