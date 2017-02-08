@@ -3,7 +3,7 @@
   "version": "0.1.2",
   "description": "Template react app.",
   "scripts": {
-    "start": "webpack-dev-servers",
+    "start": "webpack-dev-server",
     "build": "npm run lint && webpack",
     "test": "jest",
     "test-watch": "jest --watch",
