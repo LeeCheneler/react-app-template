@@ -23,33 +23,50 @@ const common = {
     path: paths.dest
   },
   resolve: {
-    extensions: ['', '.js', '.jsx', '.scss']
+    extensions: ['.js', '.jsx', '.scss']
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loaders: ['react-hot', 'babel-loader']
+        use: ['babel-loader']
       },
       {
         test: /\.html$/,
-        loader: 'html'
+        use: 'html-loader'
       },
       {
         test: /\.s?css$/,
-        loader: ExtractTextPlugin.extract(['css', 'postcss', 'sass'])
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader'
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                plugins: () => [
+                  autoprefixer({
+                    browsers: ['last 2 versions', 'ie 9-11']
+                  })
+                ]
+              }
+            },
+            {
+              loader: 'sass-loader',
+              options: {
+                includePaths: [
+                  path.resolve(__dirname, './node_modules/easy-css')
+                ]
+              }
+            }
+          ]
+        })
       }
     ]
   },
-  sassLoader: {
-    includePaths: [
-      path.resolve(__dirname, './node_modules/easy-css')
-    ],
-  },
-  postcss: [
-    autoprefixer({ browsers: ['last 2 versions', 'ie 9-11'] }),
-  ],
   plugins: [
     new ExtractTextPlugin('[name].[hash].css'),
     new HtmlWebpackPlugin({
