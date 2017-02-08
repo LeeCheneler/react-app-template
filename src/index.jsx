@@ -1,16 +1,22 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
+import { Router, Route, browserHistory } from 'react-router'
+import { syncHistoryWithStore } from 'react-router-redux'
 
 // Import sites core css
 // This will be handled by webpack and injected into the html served
 import './sass/main.scss'
 
+// Import components
+import App from './components/App'
+import NotFound from './components/NotFound'
+
 // Import redux store
 import store from './store'
 
-// Import root App component
-import App from './components/App'
+// Create an enhanced history that syncs navigation events with the store
+const history = syncHistoryWithStore(browserHistory, store)
 
 // Get the root element to bootstrap the app into
 const mountElement = document.getElementById('root')
@@ -19,7 +25,10 @@ const mountElement = document.getElementById('root')
 // Provider is a part of react-redux that injects the required state parts into container components
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Router history={history}>
+      <Route path="/" component={App} />
+      <Route path="*" component={NotFound} />
+    </Router>
   </Provider>,
   mountElement
 )
