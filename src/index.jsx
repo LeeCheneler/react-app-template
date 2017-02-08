@@ -1,20 +1,18 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
 
 import './sass/main.scss'
 
-import forest from './../public/Forest.png'
+import store from './store'
 
-/* eslint no-undef: "off" */
+import App from './components/App'
 
 const mountElement = document.getElementById('root')
 
 ReactDOM.render(
-  <div>
-    <span>Hello world!</span>
-    <div>
-      <img src={forest} alt="Forest" />
-    </div>
-  </div>,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   mountElement
 )
