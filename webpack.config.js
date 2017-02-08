@@ -45,9 +45,13 @@ const common = {
         use: 'html-loader'
       },
       {
-        // Load .scss and .css files through the following loaders left to right:
-        // sass-loader (compiles sass to css) > postcss-loader (applies autoprefixer plugin to css) > css-loader > loads css as plain text
-        // Then the ExtractTextPlugin swallows the output and injects it as a css file on the web page
+        // Load .scss and .css files through the following loaders:
+          // - sass-loader (compiles sass to css)
+          // - postcss-loader (applies autoprefixer plugin to css)
+          // - css-loader
+          // - loads css as plain text
+        // Then the ExtractTextPlugin swallows the output and injects it as a css
+        // file on the web page
         test: /\.s?css$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
@@ -84,7 +88,8 @@ const common = {
     ]
   },
   plugins: [
-    // Configre ExtractTextPlugin so it adds the hash of the css file to its file name for cache busting
+    // Configre ExtractTextPlugin so it adds the hash of the css file to its file
+    // name for cache busting
     new ExtractTextPlugin('[name].[hash].css'),
     // Specify template location for web apps root html
     new HtmlWebpackPlugin({
