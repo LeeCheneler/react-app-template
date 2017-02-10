@@ -1,10 +1,10 @@
 import { createStore, combineReducers } from 'redux'
 import { routerReducer } from 'react-router-redux'
 
-import messageReducer from './messageReducer'
+import titleReducer from './titleReducer'
 
 const rootReducer = combineReducers({
-  message: messageReducer,
+  title: titleReducer,
   routing: routerReducer
 })
 
