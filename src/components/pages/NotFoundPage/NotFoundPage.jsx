@@ -2,7 +2,9 @@ import React from 'react'
 
 const NotFoundPage = () => {
   return (
-    <span>Not Found!</span>
+    <header className="u-text-align-center">
+      <h1>Not Found!</h1>
+    </header>
   )
 }
 

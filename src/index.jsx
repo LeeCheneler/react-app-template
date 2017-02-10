@@ -27,7 +27,7 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
       <Route path="/" component={WelcomePage} />
-      <Route path="*" component={NotFoundPage} />
+      <Route path="*" component={NotFoundPage} status={404} />
     </Router>
   </Provider>,
   mountElement
