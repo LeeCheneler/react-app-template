@@ -9,7 +9,7 @@ import { syncHistoryWithStore } from 'react-router-redux'
 import './sass/main.scss'
 
 // Import components
-import App from './components/App'
+import Welcome from './components/Welcome'
 import NotFound from './components/NotFound'
 
 // Import redux store
@@ -26,7 +26,7 @@ const mountElement = document.getElementById('root')
 ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
-      <Route path="/" component={App} />
+      <Route path="/" component={Welcome} />
       <Route path="*" component={NotFound} />
     </Router>
   </Provider>,
