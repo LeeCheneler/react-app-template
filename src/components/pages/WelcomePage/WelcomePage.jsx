@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react'
 
-import forest from './../../../public/Forest.png'
+import forest from './../../../../public/Forest.png'
 
-const Welcome = ({ message }) => {
+const WelcomePage = ({ message }) => {
   return (
     <div>
       <span>{message}</span>
@@ -13,8 +13,8 @@ const Welcome = ({ message }) => {
   )
 }
 
-Welcome.propTypes = {
+WelcomePage.propTypes = {
   message: PropTypes.string.isRequired
 }
 
-export default Welcome
+export default WelcomePage
