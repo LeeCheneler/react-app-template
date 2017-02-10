@@ -2,19 +2,18 @@ import React, { PropTypes } from 'react'
 
 import forest from './../../../../public/Forest.png'
 
-const WelcomePage = ({ message }) => {
+const WelcomePage = ({ title }) => {
   return (
-    <div>
-      <span>{message}</span>
-      <div>
-        <img src={forest} alt="Forest" />
-      </div>
+    <div className="u-text-align-center">
+      <h1>{title}</h1>
+      <p>Here have a random forest...</p>
+      <img src={forest} alt="Forest" />
     </div>
   )
 }
 
 WelcomePage.propTypes = {
-  message: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired
 }
 
 export default WelcomePage

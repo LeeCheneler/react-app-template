@@ -4,7 +4,7 @@ import WelcomePage from './WelcomePage'
 
 const mapStateToProps = (state) => {
   return {
-    message: state.message
+    title: state.title
   }
 }
 
