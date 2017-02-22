@@ -24,7 +24,8 @@ const common = {
   // Output the built apps javascript and adds a hash to the file name for cache busting
   output: {
     filename: '[hash].bundle.js',
-    path: paths.dest
+    path: paths.dest,
+    publicPath: '/'
   },
   // Automatically resolve these exentions (means you can import them extensionless)
   resolve: {
