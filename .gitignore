@@ -41,3 +41,6 @@ dist
 
 # jest coverage
 coverage
+
+# stats
+stats.json

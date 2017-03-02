@@ -8,7 +8,8 @@
     "test": "jest",
     "test-watch": "jest --watch",
     "coverage": "jest --coverage",
-    "lint": "eslint . --ext .js,.jsx && stylelint \"*/**/*.scss\" --syntax scss"
+    "lint": "eslint . --ext .js,.jsx && stylelint \"*/**/*.scss\" --syntax scss",
+    "stats": "webpack --json > stats.json"
   },
   "dependencies": {
     "babel-polyfill": "^6.22.0",
