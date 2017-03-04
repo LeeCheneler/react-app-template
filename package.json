@@ -9,7 +9,7 @@
     "test-watch": "jest --watch",
     "coverage": "jest --coverage",
     "lint": "eslint . --ext .js,.jsx && stylelint \"*/**/*.scss\" --syntax scss",
-    "stats": "webpack --json > stats.json"
+    "stats": "webpack --profile --json > stats.json"
   },
   "dependencies": {
     "babel-polyfill": "^6.22.0",
@@ -53,6 +53,7 @@
     "stylelint-scss": "^1.3.4",
     "stylelint-selector-bem-pattern": "^1.0.0",
     "webpack": "^2.2.1",
+    "webpack-bundle-analyzer": "^2.3.0",
     "webpack-dev-server": "^2.3.0",
     "webpack-merge": "^2.6.1"
   }
