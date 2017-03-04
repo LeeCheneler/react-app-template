@@ -6,11 +6,11 @@ import { syncHistoryWithStore } from 'react-router-redux'
 
 // Import sites core css
 // This will be handled by webpack and injected into the html served
-import './sass/main.scss'
+import 'sass/main.scss'
 
 // Import components
-import WelcomePage from './components/pages/WelcomePage'
-import NotFoundPage from './components/pages/NotFoundPage'
+import WelcomePage from 'components/pages/WelcomePage'
+import NotFoundPage from 'components/pages/NotFoundPage'
 
 // Import redux store
 import store from './store'

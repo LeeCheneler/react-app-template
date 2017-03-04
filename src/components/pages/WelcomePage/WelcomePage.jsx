@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 
-import forest from './../../../../public/Forest.png'
+import forest from 'assets/images/Forest.png'
 
 const WelcomePage = ({ title }) => {
   return (

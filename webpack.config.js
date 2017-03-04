@@ -5,6 +5,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const autoprefixer = require('autoprefixer')
 const merge = require('webpack-merge')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 // Best to use path.join and the variable '__dirname' to ensure
 // compatible paths across all file systems (windows/mac/linux)
@@ -29,6 +30,7 @@ const common = {
   },
   // Automatically resolve these exentions (means you can import them extensionless)
   resolve: {
+    modules: ['src', 'node_modules'],
     extensions: ['.js', '.jsx', '.scss']
   },
   // Specify module loading rules, how various file types are imported via ES6/7 import
@@ -95,7 +97,8 @@ const common = {
     // Specify template location for web apps root html
     new HtmlWebpackPlugin({
       template: './public/index.html'
-    })
+    }),
+    new BundleAnalyzerPlugin()
   ]
 }
 
