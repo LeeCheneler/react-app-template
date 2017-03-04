@@ -29,6 +29,7 @@ const common = {
   },
   // Automatically resolve these exentions (means you can import them extensionless)
   resolve: {
+    modules: ['src', 'node_modules'],
     extensions: ['.js', '.jsx', '.scss']
   },
   // Specify module loading rules, how various file types are imported via ES6/7 import

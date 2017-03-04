@@ -1,4 +1,4 @@
-import titleReducer from './../titleReducer'
+import titleReducer from 'store/titleReducer'
 
 describe('titleReducer', () => {
   it('should return the correct title', () => {
