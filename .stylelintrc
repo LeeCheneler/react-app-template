@@ -9,11 +9,10 @@
   ],
   "rules": {
     "max-nesting-depth": [ 1, {
-      ignore: ["at-rules-without-declaration-blocks"],
+      ignore: ["blockless-at-rules"],
       ignoreAtRules: ["/^include$/", "/^if$/", "/^each$/"]
     }],
     "selector-class-pattern": "",
-    "declaration-block-properties-order": [],
     "selector-no-qualifying-type": [ true, {
       "ignore": ["attribute"]
     }],
