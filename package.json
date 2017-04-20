@@ -56,5 +56,11 @@
     "webpack-bundle-analyzer": "^2.3.0",
     "webpack-dev-server": "^2.3.0",
     "webpack-merge": "^2.6.1"
+  },
+  "jest": {
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ]
   }
 }
