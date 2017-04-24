@@ -1,7 +1,7 @@
-import titleReducer from 'store/titleReducer'
+import title from 'store/title/reducer'
 
-describe('titleReducer', () => {
+describe('title reducer', () => {
   it('should return the correct title', () => {
-    expect(titleReducer()).toBe('React App Template!')
+    expect(title()).toBe('React App Template!')
   })
 })
