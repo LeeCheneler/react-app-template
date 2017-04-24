@@ -4,7 +4,7 @@ import { routerReducer } from 'react-router-redux'
 import title from 'store/title/reducer'
 
 const rootReducer = combineReducers({
-  title: title,
+  title,
   routing: routerReducer
 })
 
