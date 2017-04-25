@@ -13,7 +13,7 @@ import App from 'components/App'
 import 'sass/main.scss'
 
 // Import redux store
-import store from './store'
+import store from 'store'
 
 // Create an enhanced history that syncs navigation events with the store
 const history = syncHistoryWithStore(createBrowserHistory(), store)
