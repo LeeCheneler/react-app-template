@@ -1,12 +1,12 @@
-import { createBrowserHistory } from 'history'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import { Router } from 'react-router'
+import { Route, Router, browserHistory } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
 
-// Import App component
-import App from 'components/App'
+// Import page components
+import WelcomePage from 'components/pages/WelcomePage'
+import NotFoundPage from 'components/pages/NotFoundPage'
 
 // Import sites core css
 // This will be handled by webpack and injected into the html served
@@ -16,7 +16,7 @@ import 'sass/main.scss'
 import store from 'store'
 
 // Create an enhanced history that syncs navigation events with the store
-const history = syncHistoryWithStore(createBrowserHistory(), store)
+const history = syncHistoryWithStore(browserHistory, store)
 
 // Get the root element to bootstrap the app into
 const mountElement = document.getElementById('root')
@@ -26,7 +26,8 @@ const mountElement = document.getElementById('root')
 ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
-      <App />
+      <Route path="/" component={WelcomePage} />
+      <Route path="/*" component={NotFoundPage} status={404} />
     </Router>
   </Provider>,
   mountElement
