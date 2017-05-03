@@ -84,8 +84,32 @@ const common = {
       },
       // Use file-loader to load images, adds a hash to the file name for cache busting
       {
-        test: /\.(jpe?g|png|gif|svg)$/i,
+        test: /\.(jpe?g|png|gif)$/i,
         loader: 'file-loader?name=[name].[hash].[ext]'
+      },
+      // Load svgs in, provides an imported object with an id property
+      // (can be used easily by providng the object to the provided SVGIcon component)
+      {
+        test: /\.svg$/i,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'svg-sprite-loader',
+          },
+          {
+            loader: 'img-loader',
+            options: {
+              minimize: true,
+              svgo: {
+                plugins: [
+                  { removeTitle: true },
+                  { convertColors: { shorthex: false } },
+                  { convertPathData: false }
+                ]
+              }
+            }
+          }
+        ]
       }
     ]
   },
