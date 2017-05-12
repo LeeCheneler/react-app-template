@@ -1,10 +1,10 @@
-@import '../../node_modules/easy-css/easy-css/settings';
+@import 'easy-css/settings';
 
 // Colors
 $color-white: #fff;
 $color-black: #000;
 
 // Spacing
-$spacing-unit-xs: $spacing-unit * 0.25;
-$spacing-unit-sm: $spacing-unit * 0.5;
-$spacing-unit-lg: $spacing-unit * 2;
+$spacing-unit-xs: $ea-spacing-unit * 0.25;
+$spacing-unit-sm: $ea-spacing-unit * 0.5;
+$spacing-unit-lg: $ea-spacing-unit * 2;

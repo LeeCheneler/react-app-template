@@ -7,7 +7,7 @@ import forest from 'assets/images/Forest.png'
 
 const WelcomePage = () => {
   return (
-    <div className="u-text-align-center">
+    <div className="ea-u-text-align-center">
       <header>
         <h1>React App Template</h1>
       </header>
