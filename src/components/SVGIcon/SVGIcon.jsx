@@ -1,13 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const SVGIcon = ({ svg, className }) => {
-  return (
-    <svg className={className}>
-      <use xlinkHref={`#${svg.id}`} />
-    </svg>
-  )
-}
+const SVGIcon = ({ svg, className }) => (
+  <svg className={className}>
+    <use xlinkHref={`#${svg.id}`} />
+  </svg>
+)
 
 SVGIcon.propTypes = {
   svg: PropTypes.shape({
