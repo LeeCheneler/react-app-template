@@ -161,8 +161,10 @@ const production = {
 function config(environment) {
   switch (environment) {
     case 'build':
+      console.log('*** Running production build ***')
       return merge(common, production)
     case 'start':
+      console.log('*** Running development build ***')
       return merge(common, development)
     default:
       return common
