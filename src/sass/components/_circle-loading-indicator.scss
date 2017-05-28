@@ -1,0 +1,61 @@
+$circle-loading-indicator-size: $ea-spacing-unit * 2;
+$circle-loading-indicator-hollow-size: $circle-loading-indicator-size * 0.7;
+$circle-loading-indicator-wedge-size: $circle-loading-indicator-size * 0.4;
+$circle-loading-indicator-spinner-width: $circle-loading-indicator-size * 0.15;
+$border-radius-circle: 50%;
+
+// build a black circle and spin it
+.c-circle-loading-indicator {
+  width: $circle-loading-indicator-size;
+  height: $circle-loading-indicator-size;
+  border-radius: $border-radius-circle;
+
+  background-color: $color-black;
+
+  animation: spin 1.5s infinite linear;
+}
+
+// center the indicator via the margin
+.c-circle-loading-indicator--center {
+  margin: 0 auto;
+}
+
+// psuedo elements need content to appear and make them both white
+// would exchange white for whatever background color you need this to appear on
+.c-circle-loading-indicator::before,
+.c-circle-loading-indicator::after {
+  background-color: $color-white;
+
+  content: ' ';
+}
+
+// use the first pseudo element to form a smaller circle that sits within the base circle
+// give it a margin equal to the width of the spinners line
+.c-circle-loading-indicator::before {
+  display: inline-block;
+  width: $circle-loading-indicator-hollow-size;
+  height: $circle-loading-indicator-hollow-size;
+  margin: $circle-loading-indicator-spinner-width;
+  border-radius: $border-radius-circle;
+}
+
+// use second pseudo element form a wedge to block out some of the spinners line
+// need this gap to actually see the spin!!
+// position it top left of the spinner and form a small square with it
+.c-circle-loading-indicator::after {
+  position: absolute;
+  left: 0;
+
+  width: $circle-loading-indicator-wedge-size;
+  height: $circle-loading-indicator-wedge-size;
+}
+
+// Take not of 0deg and 359deg. Remember that 0deg and 360deg are the same
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}

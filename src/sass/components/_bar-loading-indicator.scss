@@ -1,0 +1,67 @@
+$bar-loading-indicator-bar-height: $ea-spacing-unit * 1.25;
+$bar-loading-indicator-bar-width: $ea-spacing-unit * 0.5;
+$bar-loading-indicator-bar-gap: $ea-spacing-unit * 0.25;
+$bar-loading-indicator-animation-delay: 0.25s;
+
+// container for loading bars, fixed height and width matches total width of bars and bar gaps
+// centered by default
+// positioned absolute so that psuedo bars can be more easily absolutely positioned
+// set font size to 0 so that inner bars psuedo elements empty content doesn't affect layout
+// set white space to nowrap so that inner bars psuedo elements can't collapse to a new line when no enough horizontal space
+.c-bar-loading-indicator {
+  position: relative;
+  width: (($bar-loading-indicator-bar-width * 3) + ($bar-loading-indicator-bar-gap * 2));
+
+  font-size: 0;
+  white-space: nowrap;
+}
+
+// center the indicator via margin
+.c-bar-loading-indicator--center {
+  margin: 0 auto;
+}
+
+// 3 bars off of a single element using psuedo elements
+// bars have fixed height and width based off of REM
+// loops a fading animation forever
+.c-bar-loading-indicator__bar,
+.c-bar-loading-indicator__bar::before,
+.c-bar-loading-indicator__bar::after {
+  width: $bar-loading-indicator-bar-width;
+  height: $bar-loading-indicator-bar-height;
+
+  animation: fadeinout 1.5s infinite;
+}
+
+// middle bar, push right with margin to place it in the center
+.c-bar-loading-indicator__bar {
+  margin-left: $bar-loading-indicator-bar-width + $bar-loading-indicator-bar-gap;
+
+  animation-delay: $bar-loading-indicator-animation-delay;
+}
+
+// psuedo element left and right bars, absolute positioned to stretch full height off of parent relative position
+.c-bar-loading-indicator__bar::before,
+.c-bar-loading-indicator__bar::after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  content: ' ';
+}
+
+// left bar
+.c-bar-loading-indicator__bar::before {
+  left: 0;
+}
+
+// right bar
+.c-bar-loading-indicator__bar::after {
+  right: 0;
+
+  animation-delay: $bar-loading-indicator-animation-delay * 2;
+}
+
+// animation used to fade in and our of color black
+@keyframes fadeinout {
+  50% { background-color: $color-black; }
+}
