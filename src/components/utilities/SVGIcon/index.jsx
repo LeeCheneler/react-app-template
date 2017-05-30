@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+// Renders an SVG Icon
 const SVGIcon = ({ svg, className }) => (
   <svg className={className}>
     <use xlinkHref={`#${svg.id}`} />
@@ -15,7 +16,7 @@ SVGIcon.propTypes = {
 }
 
 SVGIcon.defaultProps = {
-  className: 'c-icon c-icon--sm'
+  className: 'c-icon'
 }
 
 export default SVGIcon

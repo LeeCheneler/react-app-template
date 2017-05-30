@@ -1,0 +1,10 @@
+// Display block instead of the default inline
+// This removes the blank space beneath images used for text descenders (ygq etc...)
+.c-image {
+  display: block;
+}
+
+.c-image--32x32 {
+  width: 32px;
+  height: 32px;
+}

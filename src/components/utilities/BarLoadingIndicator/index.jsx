@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+// Simply displays the bar loading indicator of a set size
 const BarLoadingIndicator = ({ center }) => {
   const modifier = center ? 'c-bar-loading-indicator--center' : ''
 
