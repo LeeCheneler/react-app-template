@@ -14,13 +14,16 @@ const WelcomePage = () => (
       <h1>React App Template</h1>
     </header>
     <p>Here have a random forest image...</p>
-    <ImageLoader
-      src={forest}
-      alt="Forest"
-      imageClassName="c-image c-image--32x32 u-center-block"
-      loaderClassName="c-image--32x32"
-      delay={1500}
-    />
+    <div className="ea-o-grid ea-u-text-align-center">
+      <div className="ea-o-grid__item ea-u-1/5">
+        <ImageLoader
+          src={forest}
+          alt="Forest"
+          className="c-image-loader--16by9"
+          delay={5000}
+        />
+      </div>
+    </div>
     <p>And a basket svg icon...</p>
     <SVGIcon svg={basket} className="c-icon c-icon--md" />
     <p>And a couple of loading indicators...</p>

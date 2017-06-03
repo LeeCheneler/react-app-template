@@ -1,0 +1,36 @@
+// Wrapping container for an image
+// Relative so that inner image can set its size absolutely to fill this container
+.c-image-loader {
+  position: relative;
+
+  width: 100%;
+  height: auto;
+
+  overflow: hidden;
+}
+
+// Absolutely positioned to fill parent container's space
+// Display block solves image having text underhang
+// Remove ability to bleed out of parent container
+.c-image-loader__content {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
+}
+
+// Maintain a certain aspect ratio
+// To be applied to the container element at the root of the component
+// This gives the container the correct height according to its width
+// Using this in conjuction with container element also ensures that
+// the height the image requires to render is maintained even before the
+// image is loaded so that the layout doesn't jump around as images load
+.c-image-loader--16by9 {
+  padding-top: ((9 / 16) * 100%);
+}

@@ -21,7 +21,6 @@ class ImageLoader extends React.Component {
         this.setState(() => {
           const imageAttributes = {
             alt: props.alt,
-            className: props.imageClassName,
             src: props.src,
             title: props.title,
           }
@@ -36,7 +35,7 @@ class ImageLoader extends React.Component {
     // Setup initial loading state and css class to apply to loading display component
     // This css class is ideally used to set the size of the image
     this.state = {
-      loaderClassName: props.loaderClassName,
+      className: props.className,
       loading: true
     }
 
@@ -48,11 +47,13 @@ class ImageLoader extends React.Component {
   render() {
     if (this.state.loading) {
       return (
-        <div>
-          <div className={`ea-o-flag u-center-block ${this.state.loaderClassName}`}>
-            <div className="ea-o-flag__component" />
-            <div className="ea-o-flag__body">
-              <BarLoadingIndicator />
+        <div className={`c-image-loader ${this.state.className}`}>
+          <div className="c-image-loader__content">
+            <div className="ea-o-flag u-height-fill">
+              <div className="ea-o-flag__component" />
+              <div className="ea-o-flag__body">
+                <BarLoadingIndicator />
+              </div>
             </div>
           </div>
         </div>
@@ -60,24 +61,32 @@ class ImageLoader extends React.Component {
     }
     return (
       // When loaded display an image tag (use object spread to apply all image attributes)
-      // eslint-disable-next-line
-      <img {...this.state.imageAttributes} />
+      /* eslint-disable */
+      <div className={`c-image-loader ${this.state.className}`}>
+        <div className="c-image-loader__content">
+          <div className="ea-o-flag u-height-fill">
+            <div className="ea-o-flag__component" />
+            <div className="ea-o-flag__body">
+              <img className="c-image-loader__content" {...this.state.imageAttributes} />
+            </div>
+          </div>
+        </div>
+      </div>
+      /* eslint-enable */
     )
   }
 }
 
 ImageLoader.propTypes = {
   alt: PropTypes.string.isRequired,
-  imageClassName: PropTypes.string,
-  loaderClassName: PropTypes.string,
+  className: PropTypes.string,
   delay: PropTypes.number,
   src: PropTypes.string.isRequired,
   title: PropTypes.string,
 }
 
 ImageLoader.defaultProps = {
-  imageClassName: '',
-  loaderClassName: '',
+  className: '',
   delay: 0,
   title: ''
 }
