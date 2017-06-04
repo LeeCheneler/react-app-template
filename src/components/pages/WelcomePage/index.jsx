@@ -19,7 +19,7 @@ const WelcomePage = () => (
         <ImageLoader
           src={forest}
           alt="Forest"
-          className="c-image-loader--16by9"
+          className="u-16by9"
           delay={5000}
         />
       </div>

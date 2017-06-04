@@ -6,6 +6,8 @@
   width: 100%;
   height: auto;
 
+  background-color: $color-grey;
+
   overflow: hidden;
 }
 
@@ -23,14 +25,4 @@
   max-width: 100%;
   max-height: 100%;
   margin: auto;
-}
-
-// Maintain a certain aspect ratio
-// To be applied to the container element at the root of the component
-// This gives the container the correct height according to its width
-// Using this in conjuction with container element also ensures that
-// the height the image requires to render is maintained even before the
-// image is loaded so that the layout doesn't jump around as images load
-.c-image-loader--16by9 {
-  padding-top: ((9 / 16) * 100%);
 }
