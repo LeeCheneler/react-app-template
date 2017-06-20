@@ -14,11 +14,12 @@
   "dependencies": {
     "babel-polyfill": "^6.23.0",
     "easy-css": "^3.1.0",
+    "history": "^4.6.3",
     "prop-types": "^15.5.8",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
-    "react-redux": "^5.0.4",
-    "react-router": "^3.0.5",
+    "react-redux": "^5.0.5",
+    "react-router": "^4.1.1",
     "react-router-redux": "^4.0.8",
     "redux": "^3.6.0"
   },

@@ -1,8 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import { Route, Router, browserHistory } from 'react-router'
+import { Route, Router } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
+import createHistory from 'history/createBrowserHistory'
+
 
 // Import page components
 import WelcomePage from 'components/pages/WelcomePage'
@@ -16,7 +18,7 @@ import 'sass/main.scss'
 import store from 'store'
 
 // Create an enhanced history that syncs navigation events with the store
-const history = syncHistoryWithStore(browserHistory, store)
+const history = syncHistoryWithStore(createHistory(), store)
 
 // Get the root element to bootstrap the app into
 const mountElement = document.getElementById('root')
@@ -26,8 +28,10 @@ const mountElement = document.getElementById('root')
 ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
-      <Route path="/" component={WelcomePage} />
-      <Route path="/*" component={NotFoundPage} status={404} />
+      <div>
+        <Route path="/" exact component={WelcomePage} />
+        <Route path="/*" component={NotFoundPage} />
+      </div>
     </Router>
   </Provider>,
   mountElement
