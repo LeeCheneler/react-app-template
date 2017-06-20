@@ -2,8 +2,8 @@
 // Apply these to a div that has a set width in order to give it the correct height according to the ratio
 // Very useful to apply to the ImageLoader component's className prop
 
-@include aspectRatio(4, 3);
-@include aspectRatio(3, 2);
-@include aspectRatio(1, 1);
-@include aspectRatio(16, 9);
-@include aspectRatio(5, 3);
+@include aspect-ratio(4, 3);
+@include aspect-ratio(3, 2);
+@include aspect-ratio(1, 1);
+@include aspect-ratio(16, 9);
+@include aspect-ratio(5, 3);
