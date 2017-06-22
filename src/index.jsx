@@ -1,10 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import { Route, Router } from 'react-router'
+import { Route, Router, Switch } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
 import createHistory from 'history/createBrowserHistory'
-
 
 // Import page components
 import WelcomePage from 'components/pages/WelcomePage'
@@ -28,10 +27,10 @@ const mountElement = document.getElementById('root')
 ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
-      <div>
+      <Switch>
         <Route path="/" exact component={WelcomePage} />
-        <Route path="/*" component={NotFoundPage} />
-      </div>
+        <Route component={NotFoundPage} />
+      </Switch>
     </Router>
   </Provider>,
   mountElement
