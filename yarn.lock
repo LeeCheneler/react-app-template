@@ -2100,9 +2100,9 @@ each-async@^1.0.0, each-async@^1.1.1:
     onetime "^1.0.0"
     set-immediate-shim "^1.0.0"
 
-easy-css@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/easy-css/-/easy-css-4.0.0.tgz#700bf098e886dc07a40d00ff2cc7da9d2e51aed0"
+easy-css@4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/easy-css/-/easy-css-4.1.0.tgz#d3f11c1f7017e3d451a85527427e279cf9c27958"
 
 ecc-jsbn@~0.1.1:
   version "0.1.1"

@@ -22,20 +22,23 @@ A bare bones, highly extensible ITCSS style framework in [easy-css](https://gith
 3. `git push --mirror https://github.com/leecheneler/my-new-app`
 4. Delete the bare repo you pulled down and clone your new repo :)
 
+### Installing dependencies
+`yarn install`
+
 ### Running the app for development
-`npm start`
+`yarn start`
 
 ### Building the app for deployment
-`npm run build`
+`yarn build`
 
 ### Running tests once
-`npm test`
+`yarn test`
 
 ### Running tests with watch to pick up changes
-`npm run test-watch`
+`yarn test-watch`
 
 ### Getting test coverage report
-`npm run coverage`
+`yarn coverage`
 
 ### Lint javascript and sass
-`npm run lint`
+`yarn lint`
