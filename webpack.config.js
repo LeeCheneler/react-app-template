@@ -6,6 +6,7 @@ const autoprefixer = require('autoprefixer')
 const merge = require('webpack-merge')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const OfflinePlugin = require('offline-plugin')
 
 // Best to use path.join and the variable '__dirname' to ensure
 // compatible paths across all file systems (windows/mac/linux)
@@ -135,16 +136,9 @@ const common = {
       {
         from: './public/manifest.json',
         to: ''
-      },
-      {
-        from: './public/sw.js',
-        to: ''
-      },
-      {
-        from: './public/offline',
-        to: 'offline/[name].[hash].[ext]'
       }
-    ])
+    ]),
+    new OfflinePlugin()
   ]
 }
 
@@ -170,11 +164,13 @@ const production = {
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false
-      }
+      },
+      sourceMap: true
     }),
     // clean dist directory before new build
     new CleanWebpackPlugin([paths.dest])
-  ]
+  ],
+  devtool: 'source-map'
 }
 
 // Merge configs based on environment

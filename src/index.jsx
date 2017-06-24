@@ -5,9 +5,9 @@ import { Route, Switch } from 'react-router'
 import { Link } from 'react-router-dom'
 import { ConnectedRouter } from 'connected-react-router'
 import createHistory from 'history/createBrowserHistory'
-
-// Import registration functino for to register service workers for offline supprt
-import registerServiceWorkers from 'service-worker'
+// This is imported as a dev dependency and made available via webpack plugin (it's weird)
+// eslint-disable-next-line import/no-extraneous-dependencies
+import * as OfflinePluginRuntime from 'offline-plugin/runtime'
 
 // Import sites core css
 // This will be handled by webpack and injected into the html served
@@ -16,8 +16,8 @@ import 'sass/main.scss'
 // Import redux store builder
 import buildStore from 'store'
 
-// Register service worker for offline support
-registerServiceWorkers()
+// Configure service work for good offline experience
+OfflinePluginRuntime.install()
 
 // Configure store, it uses connected-react-router under the hood to hook up rooting changes
 const history = createHistory()
