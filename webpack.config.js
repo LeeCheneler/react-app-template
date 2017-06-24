@@ -5,6 +5,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const autoprefixer = require('autoprefixer')
 const merge = require('webpack-merge')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 // Best to use path.join and the variable '__dirname' to ensure
 // compatible paths across all file systems (windows/mac/linux)
@@ -124,7 +125,26 @@ const common = {
     // Specify template location for web apps root html
     new HtmlWebpackPlugin({
       template: './public/index.html'
-    })
+    }),
+    // Series of copies into build directory for service worker support
+    new CopyWebpackPlugin([
+      {
+        from: './public/images/touch',
+        to: 'images/touch'
+      },
+      {
+        from: './public/manifest.json',
+        to: ''
+      },
+      {
+        from: './public/sw.js',
+        to: ''
+      },
+      {
+        from: './public/offline',
+        to: 'offline/[name].[hash].[ext]'
+      }
+    ])
   ]
 }
 

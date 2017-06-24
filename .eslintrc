@@ -1,4 +1,4 @@
-{  
+{
   "env": {
     "browser": true,
     "jest": true
@@ -14,7 +14,8 @@
     "quotes": ["error", "single"],
     "linebreak-style": ["off"],
     "comma-dangle": ["off"],
-    "arrow-body-style": ["off"]
+    "arrow-body-style": ["off"],
+    "max-len": ["error", 125]
   },
   "settings": {
     "import/resolver": "webpack"

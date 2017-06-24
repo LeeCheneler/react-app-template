@@ -1,0 +1,13 @@
+{
+  "name": "React App Template",
+  "short_name": "App",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#007fff",
+  "description": "A simple react app template.",
+  "icons": [{
+    "src": "images/touch/homescreen48.png",
+    "sizes": "48x48",
+    "type": "image/png"
+  }]
+}
