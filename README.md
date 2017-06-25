@@ -42,3 +42,6 @@ A bare bones, highly extensible ITCSS style framework in [easy-css](https://gith
 
 ### Lint javascript and sass
 `yarn lint`
+
+## Offline support with service workers
+Offline first mantra baked in with service worker supported provided via [offline-plugin](https://github.com/NekR/offline-plugin)

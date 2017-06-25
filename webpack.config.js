@@ -5,6 +5,8 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const autoprefixer = require('autoprefixer')
 const merge = require('webpack-merge')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const OfflinePlugin = require('offline-plugin')
 
 // Best to use path.join and the variable '__dirname' to ensure
 // compatible paths across all file systems (windows/mac/linux)
@@ -59,7 +61,10 @@ const common = {
           fallback: 'style-loader',
           use: [
             {
-              loader: 'css-loader'
+              loader: 'css-loader',
+              options: {
+                minimize: true
+              }
             },
             {
               loader: 'postcss-loader',
@@ -124,7 +129,20 @@ const common = {
     // Specify template location for web apps root html
     new HtmlWebpackPlugin({
       template: './public/index.html'
-    })
+    }),
+    // Series of copies into build directory for service worker support
+    new CopyWebpackPlugin([
+      {
+        from: './public/images/touch',
+        to: 'images/touch'
+      },
+      {
+        from: './public/manifest.json',
+        to: ''
+      }
+    ]),
+    // This produces service worker files required for offline support
+    new OfflinePlugin()
   ]
 }
 
@@ -134,6 +152,7 @@ const development = {
     historyApiFallback: true,
     inline: true,
     stats: 'errors-only',
+    compress: true
   },
   devtool: 'source-map',
 }
@@ -150,11 +169,13 @@ const production = {
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false
-      }
+      },
+      sourceMap: true
     }),
     // clean dist directory before new build
     new CleanWebpackPlugin([paths.dest])
-  ]
+  ],
+  devtool: 'source-map'
 }
 
 // Merge configs based on environment
