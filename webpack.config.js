@@ -141,6 +141,7 @@ const common = {
         to: ''
       }
     ]),
+    // This produces service worker files required for offline support
     new OfflinePlugin()
   ]
 }
