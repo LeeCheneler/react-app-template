@@ -61,7 +61,10 @@ const common = {
           fallback: 'style-loader',
           use: [
             {
-              loader: 'css-loader'
+              loader: 'css-loader',
+              options: {
+                minimize: true
+              }
             },
             {
               loader: 'postcss-loader',
@@ -148,6 +151,7 @@ const development = {
     historyApiFallback: true,
     inline: true,
     stats: 'errors-only',
+    compress: true
   },
   devtool: 'source-map',
 }
