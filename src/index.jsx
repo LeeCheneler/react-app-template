@@ -28,7 +28,6 @@ const mountElement = document.getElementById('root')
 
 // Finally render :)
 // Provider is a part of react-redux that injects the required state parts into container components
-// TODO - replace inline pure components with real components :)
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>

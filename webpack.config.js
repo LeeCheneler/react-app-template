@@ -50,10 +50,10 @@ const common = {
       },
       {
         // Load .scss and .css files through the following loaders:
-          // - sass-loader (compiles sass to css)
-          // - postcss-loader (applies autoprefixer plugin to css)
-          // - css-loader
-          // - loads css as plain text
+        // - sass-loader (compiles sass to css)
+        // - postcss-loader (applies autoprefixer plugin to css)
+        // - css-loader
+        // - loads css as plain text
         // Then the ExtractTextPlugin swallows the output and injects it as a css
         // file on the web page
         test: /\.s?css$/,
@@ -141,8 +141,18 @@ const common = {
         to: ''
       }
     ]),
-    // This produces service worker files required for offline support
-    new OfflinePlugin()
+    // This produces service worker files required for very basic offline support
+    // For a more detailed but still basic SPA config see here:
+    // https://github.com/NekR/offline-plugin/blob/master/docs/examples/SPA.md
+    new OfflinePlugin({
+      publicPath: '/',
+      externals: [
+        '/'
+      ],
+      ServiceWorker: {
+        navigateFallbackURL: '/'
+      }
+    })
   ]
 }
 
