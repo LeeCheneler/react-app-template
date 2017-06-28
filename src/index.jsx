@@ -1,5 +1,7 @@
+/* eslint-disable */
 import React from 'react'
 import ReactDOM from 'react-dom'
+/* eslint-enable */
 import { Provider } from 'react-redux'
 import { Route, Switch } from 'react-router'
 import { Link } from 'react-router-dom'
