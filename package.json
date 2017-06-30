@@ -15,7 +15,7 @@
     "babel-polyfill": "^6.23.0",
     "connected-react-router": "^4.2.1",
     "copy-webpack-plugin": "^4.0.1",
-    "easy-css": "4.1.0",
+    "easy-css": "^4.3.0",
     "history": "^4.6.3",
     "prop-types": "^15.5.8",
     "react": "^15.5.4",
