@@ -12,6 +12,7 @@ JavaScript and style linting is already set up and working via [ESLint](https://
 
 A bare bones, highly extensible ITCSS style framework in [easy-css](https://github.com/leecheneler/easy-css) is already imported and set up ready to use.
 
+This react app comes with a lightweight [express](https://www.npmjs.com/package/express) app ready configured to round up a fully self hosting app.
 
 ## Getting Started
 
@@ -30,6 +31,9 @@ A bare bones, highly extensible ITCSS style framework in [easy-css](https://gith
 
 ### Building the app for deployment
 `yarn build`
+
+### Running the app for production via express
+`yarn build && yarn express`
 
 ### Running tests once
 `yarn test`

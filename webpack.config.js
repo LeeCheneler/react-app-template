@@ -13,7 +13,7 @@ const OfflinePlugin = require('offline-plugin')
 const paths = {
   public: path.join(__dirname, '/public'),
   src: path.join(__dirname, '/src'),
-  dest: path.join(__dirname, '/dist')
+  dest: path.join(__dirname, '/express/public')
 }
 
 // Common webpack config that is always applied
