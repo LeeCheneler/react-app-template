@@ -2,9 +2,11 @@
 const argv = require('yargs').argv
 const path = require('path')
 const express = require('express')
+const compression = require('compression')
 
-// Initialise express app
+// Initialise express app and configure to compress responses
 const app = express()
+app.use(compression())
 
 // Serve static files from the public folder (js, css, images, etc)
 const publicPath = path.join(__dirname, 'public')
