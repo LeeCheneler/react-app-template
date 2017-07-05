@@ -47,5 +47,17 @@ This react app comes with a lightweight [express](https://www.npmjs.com/package/
 ### Lint javascript and sass
 `yarn lint`
 
+### Remove express server (it's not for everyone)
+`yarn remove express compression yargs && rm -rf express`
+
+Then you need to reconfigure where your webpack outputs a build to by editing this line:
+```
+dest: path.join(__dirname, '/express/public')
+```
+to something like:
+```
+dest: path.join(__dirname, '/dist')
+```
+
 ## Offline support with service workers
 Offline first mantra baked in with service worker supported provided via [offline-plugin](https://github.com/NekR/offline-plugin)
