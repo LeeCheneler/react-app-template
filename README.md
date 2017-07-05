@@ -50,7 +50,7 @@ This react app comes with a lightweight [express](https://www.npmjs.com/package/
 ### Remove express server (it's not for everyone)
 `yarn remove express compression yargs && rm -rf express`
 
-Then you need to reconfigure where your webpack outputs a build to by editing this line:
+Then you need to reconfigure where your `webpack.config.js` outputs a build to by editing this line:
 ```
 dest: path.join(__dirname, '/express/public')
 ```
@@ -58,6 +58,16 @@ to something like:
 ```
 dest: path.join(__dirname, '/dist')
 ```
+
+Then you need to update your `.eslintignore` to ignore your new build output folder by changing this line:
+```
+express/public
+```
+to match your new build output folder
+```
+dist
+```
+
 
 ## Offline support with service workers
 Offline first mantra baked in with service worker supported provided via [offline-plugin](https://github.com/NekR/offline-plugin)
