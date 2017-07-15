@@ -130,7 +130,7 @@ const common = {
     new HtmlWebpackPlugin({
       template: './public/index.html'
     }),
-    // Series of copies into build directory for service worker support
+    // Series of copies into build directory for service worker support and favicon
     new CopyWebpackPlugin([
       {
         from: './public/images/touch',
@@ -138,6 +138,10 @@ const common = {
       },
       {
         from: './public/manifest.json',
+        to: ''
+      },
+      {
+        from: './public/favicon.ico',
         to: ''
       }
     ]),
