@@ -68,6 +68,11 @@ to match your new build output folder
 dist
 ```
 
+And finally remove the express npm script:
+```
+"express": "node express/index.js --port 3000"
+```
+
 
 ## Offline support with service workers
 Offline first mantra baked in with service worker supported provided via [offline-plugin](https://github.com/NekR/offline-plugin)
