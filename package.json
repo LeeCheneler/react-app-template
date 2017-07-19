@@ -9,7 +9,7 @@
     "test-watch": "jest --watch",
     "coverage": "jest --coverage",
     "lint": "eslint . --ext .js,.jsx && stylelint \"*/**/*.scss\" --syntax scss",
-    "stats": "webpack --profile --json > stats.json && webpack-bundle-analyzer stats.json",
+    "stats": "webpack --profile --json > stats.json",
     "express": "node express/index.js --port 3000"
   },
   "dependencies": {
@@ -67,7 +67,7 @@
     "svg-sprite-loader": "^2.0.4",
     "webpack": "3.3.0",
     "webpack-bundle-analyzer": "2.8.3",
-    "webpack-dev-server": "^2.3.0",
+    "webpack-dev-server": "2.5.1",
     "webpack-merge": "^4.1.0"
   },
   "jest": {

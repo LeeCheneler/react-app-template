@@ -7,6 +7,7 @@ const merge = require('webpack-merge')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const OfflinePlugin = require('offline-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 // Best to use path.join and the variable '__dirname' to ensure
 // compatible paths across all file systems (windows/mac/linux)
@@ -19,13 +20,13 @@ const paths = {
 // Common webpack config that is always applied
 const common = {
   // Use babel with polyfill built in build the app from the root javascript file
-  entry: [
-    'babel-polyfill',
-    path.join(paths.src, '/index.jsx')
-  ],
-  // Output the built apps javascript and adds a hash to the file name for cache busting
+  entry: {
+    polyfill: ['babel-polyfill'],
+    app: path.join(paths.src, '/index.jsx')
+  },
+  // Output the built apps javascript and adds a chunkhash to the file name for cache busting
   output: {
-    filename: '[hash].bundle.js',
+    filename: 'app.[chunkhash].js',
     path: paths.dest,
     publicPath: '/'
   },
@@ -87,10 +88,10 @@ const common = {
           ]
         })
       },
-      // Use file-loader to load images, adds a hash to the file name for cache busting
+      // Use file-loader to load images, adds a chunkhash to the file name for cache busting
       {
         test: /\.(jpe?g|png|gif)$/i,
-        loader: 'file-loader?name=[name].[hash].[ext]'
+        loader: 'file-loader?name=[name].[chunkhash].[ext]'
       },
       // Load svgs in, provides an imported object with an id property
       // (can be used easily by providng the object to the provided SVGIcon component)
@@ -123,9 +124,15 @@ const common = {
     ]
   },
   plugins: [
-    // Configre ExtractTextPlugin so it adds the hash of the css file to its file
+    // Configure chunk to split polyfill payload out from app
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'polyfill',
+      filename: 'polyfill.[chunkhash].js',
+      minChunks: Infinity
+    }),
+    // Configure ExtractTextPlugin so it adds the chunkhash of the css file to its file
     // name for cache busting
-    new ExtractTextPlugin('[name].[hash].css'),
+    new ExtractTextPlugin('[name].[chunkhash].css'),
     // Specify template location for web apps root html
     new HtmlWebpackPlugin({
       template: './public/index.html'
@@ -165,8 +172,7 @@ const development = {
   devServer: {
     historyApiFallback: true,
     inline: true,
-    stats: 'errors-only',
-    compress: true
+    stats: 'errors-only'
   },
   devtool: 'source-map',
 }
@@ -192,6 +198,16 @@ const production = {
   devtool: 'source-map'
 }
 
+const stats = {
+  plugins: [
+    // clean dist directory before new stats build
+    new CleanWebpackPlugin([paths.dest]),
+    new BundleAnalyzerPlugin({
+      statsFilename: 'stats.json'
+    })
+  ]
+}
+
 // Merge configs based on environment
 function config(environment) {
   switch (environment) {
@@ -201,6 +217,9 @@ function config(environment) {
     case 'start':
       console.log('*** Running development build ***')
       return merge(common, development)
+    case 'stats':
+      console.log('*** Running stats build ***')
+      return merge(common, stats)
     default:
       return common
   }
