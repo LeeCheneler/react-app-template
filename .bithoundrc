@@ -4,8 +4,7 @@
   },
   "dependencies": {
     "unused-ignores": [
-      "easy-css",
-      "babel-polyfill"
+      "easy-css"
     ]
   }
 }
