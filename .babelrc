@@ -1,7 +1,16 @@
 {
   "presets": [
-    "es2015",
-    "stage-3",
+    [
+      "env",
+      {
+        "targets": {
+          "browsers": [
+            "last 2 versions",
+            "ie 9-11"
+          ]
+        }
+      }
+    ],
     "react"
   ]
 }

@@ -20,10 +20,7 @@ const paths = {
 // Common webpack config that is always applied
 const common = {
   // Use babel with polyfill built in build the app from the root javascript file
-  entry: {
-    polyfill: ['babel-polyfill'],
-    app: path.join(paths.src, '/index.jsx')
-  },
+  entry: path.join(paths.src, '/index.jsx'),
   // Output the built apps javascript and adds a chunkhash to the file name for cache busting
   output: {
     filename: 'app.[chunkhash].js',
@@ -124,12 +121,6 @@ const common = {
     ]
   },
   plugins: [
-    // Configure chunk to split polyfill payload out from app
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'polyfill',
-      filename: 'polyfill.[chunkhash].js',
-      minChunks: Infinity
-    }),
     // Configure ExtractTextPlugin so it adds the chunkhash of the css file to its file
     // name for cache busting
     new ExtractTextPlugin('[name].[chunkhash].css'),
