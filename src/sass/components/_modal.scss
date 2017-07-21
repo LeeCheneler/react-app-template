@@ -1,0 +1,88 @@
+// Box
+$modal-box-color: #fff;
+$modal-box-z-index: 1;
+$modal-box-max-width: 800px;
+$modal-box-min-height: 200px;
+
+// Background
+$modal-background-color: rgba(12, 12, 12, 0.7);
+$modal-background-z-index: 1;
+
+// Animation
+$modal-animation-duration: 0.3s;
+
+// Fill viewport for .c-model__box to center itself within
+// Apply padding so box never hits edges
+// Hidden by default, opened when .is-open is applied to it
+.c-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  display: none;
+  padding: $ea-spacing-unit;
+
+  &.is-open {
+    display: block;
+  }
+}
+
+// Box centered relative to .c-modal
+// Animated upon appearance
+.c-modal__box {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  max-width: $modal-box-max-width;
+  min-height: $modal-box-min-height;
+
+  background-color: $modal-box-color;
+
+  z-index: $modal-box-z-index;
+  animation-duration: $modal-animation-duration;
+  animation-name: box-appear;
+}
+
+// Fill viewport to apply transparent overlay
+// Animated upon appearance
+.c-modal__background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  padding: $ea-spacing-unit;
+
+  background-color: $modal-background-color;
+
+  z-index: $modal-background-z-index;
+  animation-duration: $modal-animation-duration;
+  animation-name: background-appear;
+}
+
+@keyframes box-appear {
+  0% {
+    transform: translate(-50%, -50%) rotateX(90deg);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes background-appear {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
