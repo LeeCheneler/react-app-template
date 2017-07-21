@@ -1,6 +1,13 @@
 import React from 'react'
 
 import Modal from 'components/Modal'
+import SVGIcon from 'components/SVGIcon'
+
+import CloseIcon from 'assets/icons/close.svg'
+
+const ESC_KEY_CODE = 27
+const KEY_UP_EVENT = 'keyup'
+const FOCUS_EVENT = 'focus'
 
 class ModalDemo extends React.Component {
   constructor() {
@@ -8,31 +15,83 @@ class ModalDemo extends React.Component {
     this.state = { modalActivated: false }
     this.activateModal = this.activateModal.bind(this)
     this.deactivateModal = this.deactivateModal.bind(this)
+    this.handleEscapeKeyHit = this.handleEscapeKeyHit.bind(this)
+    this.handleElementFocused = this.handleElementFocused.bind(this)
+  }
+
+  componentDidUpdate() {
+    if (this.state.modalActivated) {
+      this.closeModalButton.focus()
+      document.addEventListener(FOCUS_EVENT, this.handleElementFocused, true)
+    }
   }
 
   activateModal() {
     this.setState(() => ({ modalActivated: true }))
-    document.body.className = 'c-site has-overlay'
+    document.body.className = 'u-has-overlay'
+    document.addEventListener(KEY_UP_EVENT, this.handleEscapeKeyHit)
   }
 
   deactivateModal() {
     this.setState(() => ({ modalActivated: false }))
-    document.body.className = 'c-site'
+    document.body.className = ''
+    document.removeEventListener(KEY_UP_EVENT, this.handleEscapeKeyHit)
+    document.removeEventListener(FOCUS_EVENT, this.handleElementFocused, true)
+    this.openModalButton.focus()
+  }
+
+  handleEscapeKeyHit({ keyCode }) {
+    if (keyCode === ESC_KEY_CODE) {
+      this.deactivateModal()
+    }
+  }
+
+  // If a focus attempt is made on anything other than the modal's close button
+  // then prevent it from propogating and focus back on the modal close button
+  handleElementFocused(e) {
+    if (e.target.id !== this.closeModalButton.id) {
+      e.stopPropagation()
+      this.closeModalButton.focus()
+    }
   }
 
   render() {
+    /* eslint-disable max-len */
     return (
       <div>
-        <h2>Modal Demo</h2>
-        <div>
-          <input />
-        </div>
-        <button onClick={this.activateModal}>Popup</button>
-        <Modal isOpen={this.state.modalActivated}>
-          <button onClick={this.deactivateModal}>Close</button>
+        <h2>Modal</h2>
+        <button
+          onClick={this.activateModal}
+          ref={(x) => { this.openModalButton = x }}
+        >
+          Open Modal
+        </button>
+        <Modal
+          isOpen={this.state.modalActivated}
+          labelledBy="modalHeading"
+          describedBy="modalContent"
+        >
+          <div className="ea-u-soft">
+            <div className="ea-u-text-align-right">
+              <button
+                id="closeModal"
+                className="c-icon-button"
+                onClick={this.deactivateModal}
+                title="Close"
+                ref={(x) => { this.closeModalButton = x }}
+              >
+                <SVGIcon svg={CloseIcon} />
+              </button>
+            </div>
+            <h3 id="modalHeading">Heading</h3>
+            <p id="modalContent">
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+          </p>
+          </div>
         </Modal>
       </div>
     )
+    /* eslint-enable max-len */
   }
 }
 
