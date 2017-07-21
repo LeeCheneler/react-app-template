@@ -13,6 +13,9 @@ import * as OfflinePluginRuntime from 'offline-plugin/runtime'
 // This will be handled by webpack and injected into the html served
 import 'sass/main.scss'
 
+// Components
+import ModalDemo from 'components/ModalDemo'
+
 // Import redux store builder
 import buildStore from 'store'
 
@@ -32,9 +35,8 @@ ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
       <Switch>
-        <Route path="/" exact component={() => <div><h1>Home</h1><Link to="/hello">hello</Link></div>} />
-        <Route path="/hello" component={() => <div><h1>Hello</h1><Link to="/">home</Link></div>} />
-        <Route component={() => <span>Not Found!</span>} />
+        <Route path="/" exact component={() => <ModalDemo />} />
+        <Route component={() => <div><span>Not found!</span><div><Link to="/">home</Link></div></div>} />
       </Switch>
     </ConnectedRouter>
   </Provider>,
