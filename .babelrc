@@ -1,6 +1,13 @@
 {
   "presets": [
-    "env",
-    "react"
+    "react",
+    [
+      "env",
+      {
+        "targets": {
+          "browsers": ["> 1%", "last 2 versions", "ie 9-11"]
+        }
+      }
+    ]
   ]
 }
