@@ -1,0 +1,8 @@
+// To be applied when a modal or similar is overlaying the site
+// Ensures body always fills the viewport by filling height
+// Removes ability to scroll
+.u-has-overlay {
+  height: 100%;
+
+  overflow: hidden;
+}
