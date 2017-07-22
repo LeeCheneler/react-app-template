@@ -14,7 +14,7 @@ import * as OfflinePluginRuntime from 'offline-plugin/runtime'
 import 'sass/main.scss'
 
 // Components
-import ModalDemo from 'components/ModalDemo'
+import App from 'components/App'
 
 // Import redux store builder
 import buildStore from 'store'
@@ -35,7 +35,7 @@ ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
       <Switch>
-        <Route path="/" exact component={() => <ModalDemo />} />
+        <Route path="/" exact component={() => <App />} />
         <Route component={() => <div><span>Not found!</span><div><Link to="/">home</Link></div></div>} />
       </Switch>
     </ConnectedRouter>
