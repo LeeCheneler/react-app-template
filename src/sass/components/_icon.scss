@@ -1,8 +1,7 @@
-$icon-size: 24px;
-
 .c-icon {
-  width: $icon-size;
-  height: $icon-size;
+  display: block;
+  width: $ea-spacing-unit;
+  height: $ea-spacing-unit;
 
   color: currentColor;
 }
