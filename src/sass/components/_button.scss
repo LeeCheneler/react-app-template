@@ -1,0 +1,30 @@
+$button-border-corner-radius: 5px;
+$button-background-color: #3EACFF;
+$button-background-color-hover: #0D97FF;
+$button-color: #fff;
+
+.c-button {
+  padding: $ea-spacing-unit * 0.5;
+  border-width: 0;
+  border-radius: $button-border-corner-radius;
+
+  background-color: $button-background-color;
+  color: $button-color;
+}
+
+.c-button:hover {
+  background-color: $button-background-color-hover;
+
+  cursor: pointer;
+  animation-name: hover;
+  animation-duration: 0.3s;
+}
+
+@keyframes hover {
+  0% {
+    background-color: $button-background-color;
+  }
+  100% {
+    background-color: $button-background-color-hover;
+  }
+}

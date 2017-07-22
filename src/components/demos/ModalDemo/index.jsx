@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Modal from 'components/Modal'
-import SVGIcon from 'components/SVGIcon'
+import SVGIcon from 'components/utilities/SVGIcon'
 
 import CloseIcon from 'assets/icons/close.svg'
 
@@ -60,7 +60,11 @@ class ModalDemo extends React.Component {
     return (
       <div>
         <h2>Modal</h2>
+        <p>
+          A simple, accessible modal.
+        </p>
         <button
+          className="c-button"
           onClick={this.activateModal}
           ref={(x) => { this.openModalButton = x }}
         >
