@@ -16,7 +16,7 @@
     "compression": "^1.6.2",
     "connected-react-router": "^4.2.1",
     "copy-webpack-plugin": "^4.0.1",
-    "easy-css": "^4.4.0",
+    "easy-css": "4.5.0",
     "express": "^4.15.3",
     "history": "^4.6.3",
     "prop-types": "^15.5.8",
