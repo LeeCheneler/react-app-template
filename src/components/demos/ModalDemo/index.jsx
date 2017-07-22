@@ -60,16 +60,20 @@ class ModalDemo extends React.Component {
     return (
       <div>
         <h2>Modal</h2>
-        <p>
-          A simple, accessible modal.
-        </p>
-        <button
-          className="c-button"
-          onClick={this.activateModal}
-          ref={(x) => { this.openModalButton = x }}
-        >
-          Open Modal
+        <div className="ea-u-soft-bottom">
+          <span>
+            A simple, accessible modal.
+        </span>
+        </div>
+        <div>
+          <button
+            className="c-button"
+            onClick={this.activateModal}
+            ref={(x) => { this.openModalButton = x }}
+          >
+            Open Modal
         </button>
+        </div>
         <Modal
           isOpen={this.state.modalActivated}
           labelledBy="modalHeading"
