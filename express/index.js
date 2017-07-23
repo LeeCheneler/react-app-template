@@ -2,10 +2,13 @@
 const argv = require('yargs').argv
 const path = require('path')
 const express = require('express')
+const helmet = require('helmet')
 const compression = require('compression')
 
-// Initialise express app and configure to compress responses
+
+// Initialise express app and configure *some* security headers and compression
 const app = express()
+app.use(helmet())
 app.use(compression())
 
 // Serve static files from the public folder (js, css, images, etc)
