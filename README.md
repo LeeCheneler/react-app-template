@@ -48,7 +48,7 @@ This react app comes with a lightweight [express](https://www.npmjs.com/package/
 `yarn lint`
 
 ### Remove express server (it's not for everyone)
-`yarn remove express compression yargs && rm -rf express`
+`yarn remove express compression yargs helmet && rm -rf express`
 
 Then you need to reconfigure where your `webpack.config.js` outputs a build to by editing this line:
 ```
