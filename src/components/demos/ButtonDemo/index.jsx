@@ -2,8 +2,8 @@ import React from 'react'
 
 const ButtonDemo = () =>
   <div>
-    <h2>Buttons</h2>
     <div className="ea-u-soft-bottom">
+      <h3>Buttons</h3>
       <ul className="ea-o-list ea-o-list--inline ea-o-list--bare ea-o-list--gutter ea-o-list--trench">
         <li className="ea-o-list__item">
           <button className="c-button c-button--alpha">Alpha</button>

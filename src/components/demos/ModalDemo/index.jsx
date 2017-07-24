@@ -59,7 +59,7 @@ class ModalDemo extends React.Component {
     /* eslint-disable max-len */
     return (
       <div>
-        <h2>Modal</h2>
+        <h3>Modal</h3>
         <div className="ea-u-soft-bottom">
           <span>
             A simple, accessible modal.

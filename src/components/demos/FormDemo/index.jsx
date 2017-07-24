@@ -2,7 +2,6 @@ import React from 'react'
 
 const FormDemo = () =>
   <div>
-    <h2>Form Controls</h2>
     <div className="ea-u-soft-bottom">
       <h3>Textboxes</h3>
       <div className="ea-o-grid ea-o-grid--gutter ea-o-grid--gutter ea-o-grid--trench">
