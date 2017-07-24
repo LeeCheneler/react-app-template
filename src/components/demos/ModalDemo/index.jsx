@@ -67,7 +67,7 @@ class ModalDemo extends React.Component {
         </div>
         <div>
           <button
-            className="c-button"
+            className="c-button c-button--alpha"
             onClick={this.activateModal}
             ref={(x) => { this.openModalButton = x }}
           >

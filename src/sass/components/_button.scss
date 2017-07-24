@@ -1,30 +1,67 @@
-$button-border-corner-radius: 5px;
-$button-background-color: #3EACFF;
-$button-background-color-hover: #0D97FF;
+$button-border-corner-radius: $corner-radius;
+$button-background-color--alpha: #3eacff;
+$button-background-color-hover--alpha: #0d97ff;
+$button-background-color--beta: #1f567f;
+$button-background-color-hover--beta: #184466;
+$button-background-color-disabled: #bbb;
 $button-color: #fff;
 
 .c-button {
-  padding: $ea-spacing-unit * 0.5;
+  padding: $ea-spacing-unit;
   border-width: 0;
   border-radius: $button-border-corner-radius;
 
-  background-color: $button-background-color;
+  cursor: pointer;
+}
+
+.c-button--small {
+  padding: $ea-spacing-unit * 0.5;
+}
+
+.c-button:disabled {
+  background-color: $button-background-color-disabled;
+
+  cursor: not-allowed;
+}
+
+.c-button--alpha {
+  background-color: $button-background-color--alpha;
   color: $button-color;
 }
 
-.c-button:hover {
-  background-color: $button-background-color-hover;
+.c-button--alpha:hover:not(:disabled) {
+  background-color: $button-background-color-hover--alpha;
 
-  cursor: pointer;
-  animation-name: hover;
+  animation-name: hover--alpha;
   animation-duration: 0.3s;
 }
 
-@keyframes hover {
+.c-button--beta {
+  background-color: $button-background-color--beta;
+  color: $button-color;
+}
+
+.c-button--beta:hover:not(:disabled) {
+  background-color: $button-background-color-hover--beta;
+
+  animation-name: hover--beta;
+  animation-duration: 0.3s;
+}
+
+@keyframes hover--alpha {
   0% {
-    background-color: $button-background-color;
+    background-color: $button-background-color--alpha;
   }
   100% {
-    background-color: $button-background-color-hover;
+    background-color: $button-background-color-hover--alpha;
+  }
+}
+
+@keyframes hover--beta {
+  0% {
+    background-color: $button-background-color--beta;
+  }
+  100% {
+    background-color: $button-background-color-hover--beta;
   }
 }
