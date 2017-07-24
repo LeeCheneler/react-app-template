@@ -26,20 +26,41 @@ const FormDemo = () =>
       <ul className="ea-o-list ea-o-list--bare ea-o-list--trench">
         <li className="ea-o-list__item">
           <div className="c-input">
-            <input className="c-input__input" id="enabled" type="checkbox" />
-            <label className="c-input__label" htmlFor="enabled">Enabled</label>
+            <input className="c-input__input" id="cb_enabled" type="checkbox" />
+            <label className="c-input__label" htmlFor="cb_enabled">Enabled</label>
           </div>
         </li>
         <li className="ea-o-list__item">
           <div className="c-input">
-            <input className="c-input__input" id="disabled" type="checkbox" disabled />
-            <label className="c-input__label" htmlFor="disabled">Disabled</label>
+            <input className="c-input__input" id="cb_disabled" type="checkbox" disabled />
+            <label className="c-input__label" htmlFor="cb_disabled">Disabled</label>
           </div>
         </li>
         <li className="ea-o-list__item">
           <div className="c-input">
-            <input className="c-input__input" id="checkedDisabled" type="checkbox" disabled checked />
-            <label className="c-input__label" htmlFor="checkedDisabled">Checked Disabled</label>
+            <input className="c-input__input" id="cb_checkedDisabled" type="checkbox" disabled checked />
+            <label className="c-input__label" htmlFor="cb_checkedDisabled">Checked Disabled</label>
+          </div>
+        </li>
+      </ul>
+      <h3>Radio List</h3>
+      <ul className="ea-o-list ea-o-list--bare ea-o-list--trench">
+        <li className="ea-o-list__item">
+          <div className="c-input">
+            <input className="c-input__input" id="rb_enabled_1" type="radio" name="group" />
+            <label className="c-input__label" htmlFor="rb_enabled_1">Enabled</label>
+          </div>
+        </li>
+        <li className="ea-o-list__item">
+          <div className="c-input">
+            <input className="c-input__input" id="rb_enabled_2" type="radio" name="group" />
+            <label className="c-input__label" htmlFor="rb_enabled_2">Enabled</label>
+          </div>
+        </li>
+        <li className="ea-o-list__item">
+          <div className="c-input">
+            <input className="c-input__input" id="rb_disabled" type="radio" name="group" disabled />
+            <label className="c-input__label" htmlFor="rb_disabled">Disabled</label>
           </div>
         </li>
       </ul>
