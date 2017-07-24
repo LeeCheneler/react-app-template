@@ -1,17 +1,13 @@
 @import 'easy-css/settings';
 
-$border-radius: 5px;
-$border-width: 1px;
-$border-color: #444;
-$border-style: solid;
+$app-color-white: #fff;
+$app-color-alpha: #3eacff;
+$app-color-alpha--dark: #0d97ff;
+$app-color-beta: #1f567f;
+$app-color-beta--dark: #184466;
+$app-color-disabled: #bbb;
 
-$background-color--alpha: #3eacff;
-$background-color-hover--alpha: #0d97ff;
-$background-color--beta: #1f567f;
-$background-color-hover--beta: #184466;
-$background-color-disabled: #bbb;
-
-$color--alpha: #fff;
-$color-hover--alpha: #fff;
-$color--beta: #fff;
-$color-hover--beta: #fff;
+$form-border-radius: 5px;
+$form-border-width: 1px;
+$form-border-color: #444;
+$form-border-style: solid;

@@ -1,9 +1,8 @@
 // Box
-$modal-box-color: #fff;
+$modal-box-color: $app-color-white;
 $modal-box-z-index: 1;
 $modal-box-max-width: 800px;
 $modal-box-min-height: 200px;
-$modal-box-corner-radius: $border-radius;
 
 // Background
 $modal-background-color: rgba(12, 12, 12, 0.7);
@@ -40,7 +39,7 @@ $modal-animation-duration: 0.3s;
 
   max-width: $modal-box-max-width;
   min-height: $modal-box-min-height;
-  border-radius: $modal-box-corner-radius;
+  border-radius: $form-border-radius;
 
   background-color: $modal-box-color;
 

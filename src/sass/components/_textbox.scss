@@ -1,11 +1,11 @@
 .c-textbox {
   width: 100%;
   padding: $ea-spacing-unit;
-  border-radius: $border-radius;
-  border-width: $border-width;
-  border-color: $border-color;
+  border-radius: $form-border-radius;
+  border-width: $form-border-width;
+  border-color: $form-border-color;
 }
 
 .c-textbox:disabled {
-  background-color: $background-color-disabled;
+  background-color: $app-color-disabled;
 }

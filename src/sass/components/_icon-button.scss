@@ -1,16 +1,13 @@
-$icon-button-color: #1465ae;
-$icon-button-color-hover: #1347ae;
-
 .c-icon-button {
   padding: $ea-spacing-unit * 0.5;
   border: 0;
 
   background-color: transparent;
-  color: $icon-button-color;
+  color: $app-color-alpha;
 
   cursor: pointer;
 }
 
 .c-icon-button:hover {
-  color: $icon-button-color-hover;
+  color: $app-color-alpha--dark;
 }

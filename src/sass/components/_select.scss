@@ -1,0 +1,26 @@
+.c-select {
+  display: block;
+  width: 100%;
+  padding: $ea-spacing-unit;
+  border-radius: $form-border-radius;
+  border-style: $form-border-style;
+  border-color: $form-border-color;
+  border-width: $form-border-width;
+
+  cursor: pointer;
+}
+
+.c-select > option:last-child {
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+
+.c-select:disabled {
+  background-color: $app-color-disabled;
+
+  cursor: not-allowed;
+}
+
+.c-select--small {
+  padding: $ea-spacing-unit * 0.5;
+}

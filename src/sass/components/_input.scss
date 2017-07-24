@@ -26,14 +26,13 @@ $circle-radius: 50%;
 
   width: $icon-size;
   height: $icon-size;
-  border-style: $border-style;
-  border-width: $border-width;
-  border-color: $border-color;
+  border-style: $form-border-style;
+  border-width: $form-border-width;
+  border-color: $form-border-color;
 
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 75%;
-  color: $color--alpha;
+  background-size: 90%;
 
   content: ' ';
 }
@@ -45,7 +44,7 @@ $circle-radius: 50%;
 
 .c-input__input:checked[type=radio] +
 .c-input__label::before {
-  background-color: #fff;
+  background-color: $app-color-white;
 }
 
 .c-input__input:checked[type=radio] +
@@ -54,30 +53,30 @@ $circle-radius: 50%;
   left: 0;
   top: 0;
 
-  width: $icon-size * 0.5;
-  height: $icon-size * 0.5;
-  margin-top: $icon-size * 0.25;
-  margin-left: $icon-size * 0.25;
+  width: $icon-size * 0.6;
+  height: $icon-size * 0.6;
+  margin-top: $icon-size * 0.2;
+  margin-left: $icon-size * 0.2;
   border-radius: $circle-radius;
 
-  background-color: $background-color--alpha;
+  background-color: $app-color-alpha;
   content: ' ';
 }
 
 .c-input__input:checked[type=checkbox] +
 .c-input__label::before {
-  background-color: $background-color--alpha;
-  background-image: url('data:image/svg+xml;base64,PHN2ZyBjbGFzcz0ibG4tYy1pY29uIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OTAuNDM0IiBoZWlnaHQ9IjQ5MC40MzMiIHZpZXdCb3g9IjAgMCA0OTAuNDM0IDQ5MC40MzMiIGZpbGw9IiNmZmZmZmYiID48cGF0aCBkPSJNNDcyLjAwMyA1OC4zNkw0NTguODcgNDcuMDc4Yy0yMS43OTctMTguNzMyLTU0LjU1My0xNi42NDQtNzMuNzk4IDQuNjk3TDE2NS4zOSAyOTUuMzZsLTY2LjMxMi01Ny4xMTNjLTIxLjc3NS0xOC43NTMtNTQuNTM2LTE2LjcwNy03My44MDQgNC42MWwtMTEuNjEgMTIuODVDNC4yNDYgMjY2LjExOC0uNjQzIDI3OS44NTQuMDY3IDI5My44ODZjLjcxNyAxNC4wMjIgNi45NzMgMjcuMTg3IDE3LjQwMiAzNi42bDEyMS41NTMgMTExLjMxYzEwLjUyNCA5Ljg4MyAyNC42MjggMTUuMDM3IDM5LjA0NCAxNC4yNzIgMTQuNDE2LS43NjQgMjcuODk0LTcuMzg3IDM3LjMxLTE4LjMzbDI2Mi4yNDYtMzA0LjcxYzkuMTYyLTEwLjY0NiAxMy43MTctMjQuNDk0IDEyLjY2LTM4LjQ5Ni0xLjA1NC0xNC4wMTItNy42MjgtMjcuMDIyLTE4LjI4LTM2LjE3NHoiIC8+PC9zdmc+');
+  background-color: $app-color-alpha;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjZmZmIiBkPSJNMjAuMjg1IDJsLTExLjI4NSAxMS41NjctNS4yODYtNS4wMTEtMy43MTQgMy43MTYgOSA4LjcyOCAxNS0xNS4yODV6Ii8+PC9zdmc+');
 }
 
 .c-input__input:disabled +
 .c-input__label::before {
-  background-color: $background-color-disabled;
+  background-color: $app-color-disabled;
 }
 
 .c-input__input:disabled:checked +
 .c-input__label::before {
-  background-color: $background-color-disabled;
+  background-color: $app-color-disabled;
 }
 
 .c-input__input:disabled +
