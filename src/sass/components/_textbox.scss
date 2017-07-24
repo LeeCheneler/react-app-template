@@ -1,0 +1,10 @@
+$textbox-border-width: 1px;
+$textbox-border-color: #555;
+
+.c-textbox {
+  width: 100%;
+  padding: $ea-spacing-unit;
+  border-radius: $corner-radius;
+  border-width: $textbox-border-width;
+  border-color: $textbox-border-color;
+}
