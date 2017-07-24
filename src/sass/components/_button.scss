@@ -1,15 +1,7 @@
-$button-border-corner-radius: $corner-radius;
-$button-background-color--alpha: #3eacff;
-$button-background-color-hover--alpha: #0d97ff;
-$button-background-color--beta: #1f567f;
-$button-background-color-hover--beta: #184466;
-$button-background-color-disabled: #bbb;
-$button-color: #fff;
-
 .c-button {
   padding: $ea-spacing-unit;
   border-width: 0;
-  border-radius: $button-border-corner-radius;
+  border-radius: $border-radius;
 
   cursor: pointer;
 }
@@ -19,30 +11,30 @@ $button-color: #fff;
 }
 
 .c-button:disabled {
-  background-color: $button-background-color-disabled;
+  background-color: $background-color-disabled;
 
   cursor: not-allowed;
 }
 
 .c-button--alpha {
-  background-color: $button-background-color--alpha;
-  color: $button-color;
+  background-color: $background-color--alpha;
+  color: $color--alpha;
 }
 
 .c-button--alpha:hover:not(:disabled) {
-  background-color: $button-background-color-hover--alpha;
+  background-color: $background-color-hover--alpha;
 
   animation-name: hover--alpha;
   animation-duration: 0.3s;
 }
 
 .c-button--beta {
-  background-color: $button-background-color--beta;
-  color: $button-color;
+  background-color: $background-color--beta;
+  color: $color--beta;
 }
 
 .c-button--beta:hover:not(:disabled) {
-  background-color: $button-background-color-hover--beta;
+  background-color: $background-color-hover--beta;
 
   animation-name: hover--beta;
   animation-duration: 0.3s;
@@ -50,18 +42,18 @@ $button-color: #fff;
 
 @keyframes hover--alpha {
   0% {
-    background-color: $button-background-color--alpha;
+    background-color: $background-color--alpha;
   }
   100% {
-    background-color: $button-background-color-hover--alpha;
+    background-color: $background-color-hover--alpha;
   }
 }
 
 @keyframes hover--beta {
   0% {
-    background-color: $button-background-color--beta;
+    background-color: $background-color--beta;
   }
   100% {
-    background-color: $button-background-color-hover--beta;
+    background-color: $background-color-hover--beta;
   }
 }

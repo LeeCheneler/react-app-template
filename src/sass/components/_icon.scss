@@ -1,7 +1,9 @@
+$icon-size: $ea-spacing-unit * 1.25;
+
 .c-icon {
   display: block;
-  width: $ea-spacing-unit;
-  height: $ea-spacing-unit;
+  width: $icon-size;
+  height: $icon-size;
 
   color: currentColor;
 }

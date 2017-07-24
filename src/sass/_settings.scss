@@ -1,3 +1,17 @@
 @import 'easy-css/settings';
 
-$corner-radius: 5px;
+$border-radius: 5px;
+$border-width: 1px;
+$border-color: #444;
+$border-style: solid;
+
+$background-color--alpha: #3eacff;
+$background-color-hover--alpha: #0d97ff;
+$background-color--beta: #1f567f;
+$background-color-hover--beta: #184466;
+$background-color-disabled: #bbb;
+
+$color--alpha: #fff;
+$color-hover--alpha: #fff;
+$color--beta: #fff;
+$color-hover--beta: #fff;
