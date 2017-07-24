@@ -75,9 +75,9 @@ class ModalDemo extends React.Component {
         </button>
         </div>
         <Modal
+          aria={{ labelledBy: 'modalHeading', describedBy: 'modalContent' }}
           isOpen={this.state.modalActivated}
-          labelledBy="modalHeading"
-          describedBy="modalContent"
+          onRequestClose={this.deactivateModal}
         >
           <div className="ea-u-soft">
             <div className="ea-u-text-align-right">
