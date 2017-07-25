@@ -7,12 +7,17 @@
   border-color: $form-border-color;
   border-width: $form-border-width;
 
+  appearance: none;
+  background-repeat: no-repeat;
+  background-size: $ea-spacing-unit * 1.3;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMCA3LjMzbDIuODI5LTIuODMgOS4xNzUgOS4zMzkgOS4xNjctOS4zMzkgMi44MjkgMi44My0xMS45OTYgMTIuMTd6Ii8+PC9zdmc+');
+  background-position: right $ea-spacing-unit * 0.5 top 50%;
+
   cursor: pointer;
 }
 
-.c-select > option:last-child {
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
+select::-ms-expand {
+  display: none;
 }
 
 .c-select:disabled {
@@ -23,4 +28,6 @@
 
 .c-select--small {
   padding: $ea-spacing-unit * 0.5;
+
+  background-size: $ea-spacing-unit;
 }
