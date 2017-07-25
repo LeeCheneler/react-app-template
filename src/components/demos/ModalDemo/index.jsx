@@ -1,5 +1,6 @@
 import React from 'react'
 
+import Demo from 'components/Demo'
 import Modal from 'components/Modal'
 import SVGIcon from 'components/utilities/SVGIcon'
 
@@ -58,8 +59,7 @@ class ModalDemo extends React.Component {
   render() {
     /* eslint-disable max-len */
     return (
-      <div>
-        <h3>Modal</h3>
+      <Demo title="Modal">
         <div className="ea-u-soft-bottom">
           <span>
             A simple, accessible modal.
@@ -97,7 +97,7 @@ class ModalDemo extends React.Component {
           </p>
           </div>
         </Modal>
-      </div>
+      </Demo>
     )
     /* eslint-enable max-len */
   }

@@ -7,8 +7,8 @@ import ModalDemo from 'components/demos/ModalDemo'
 const App = () =>
   <div className="o-site-wrap">
     <ButtonDemo />
-    <FormDemo />
     <ModalDemo />
+    <FormDemo />
   </div>
 
 export default App
