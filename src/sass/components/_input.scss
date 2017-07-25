@@ -1,4 +1,5 @@
 $circle-radius: 50%;
+$display-size: 20px;
 
 .c-input {
   position: relative;
@@ -6,10 +7,13 @@ $circle-radius: 50%;
 
 // Visually hidden but still tabbable and accessible to screen readers etc
 // See https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+// We don't want to see the default checkbox input at all, labels should be linked
+// to it and can trigger it on click instead
 .c-input__input {
   @include visually-hidden
 }
 
+// Ensure padded left to give room for the checkbox visual placed via psuedo element
 .c-input__label {
   position: relative;
 
@@ -19,13 +23,14 @@ $circle-radius: 50%;
   cursor: pointer;
 }
 
+// Place a checkbox visual to the left of the label
 .c-input__label::before {
   position: absolute;
   left: 0;
   top: 0;
 
-  width: $icon-size;
-  height: $icon-size;
+  width: $display-size;
+  height: $display-size;
   border-style: $form-border-style;
   border-width: $form-border-width;
   border-color: $form-border-color;
@@ -37,36 +42,29 @@ $circle-radius: 50%;
   content: ' ';
 }
 
+// If the input is a radio button then we circle it
 .c-input__input[type=radio] +
 .c-input__label::before {
   border-radius: $circle-radius;
 }
 
+// If the input is a radio button and its checked then color background
+// and inset it with box shadow
 .c-input__input:checked[type=radio] +
 .c-input__label::before {
-  background-color: $app-color-white;
-}
-
-.c-input__input:checked[type=radio] +
-.c-input__label::after {
-  position: absolute;
-  left: 0;
-  top: 0;
-
-  width: $icon-size * 0.6;
-  height: $icon-size * 0.6;
-  margin-top: $icon-size * 0.2;
-  margin-left: $icon-size * 0.2;
-  border-radius: $circle-radius;
-
   background-color: $app-color-alpha;
-  content: ' ';
+
+  transition: background-color $small-transition-time;
+  box-shadow: inset 0 0 0 5px $app-color-white;
 }
 
+// If input is checbox and its checked then color the background and display tick
 .c-input__input:checked[type=checkbox] +
 .c-input__label::before {
   background-color: $app-color-alpha;
   background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjZmZmIiBkPSJNMjAuMjg1IDJsLTExLjI4NSAxMS41NjctNS4yODYtNS4wMTEtMy43MTQgMy43MTYgOSA4LjcyOCAxNS0xNS4yODV6Ii8+PC9zdmc+');
+
+  transition: background-color $small-transition-time;
 }
 
 .c-input__input:disabled +

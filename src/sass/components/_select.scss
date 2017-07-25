@@ -1,3 +1,6 @@
+// Provide a rounded, fat style
+// Remove <select> tag styling with appearance: none
+// Set down chevron background image on the right hand side
 .c-select {
   display: block;
   width: 100%;
@@ -16,6 +19,7 @@
   cursor: pointer;
 }
 
+// Remove down arrow styling on IE
 select::-ms-expand {
   display: none;
 }

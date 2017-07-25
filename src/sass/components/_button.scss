@@ -24,8 +24,7 @@
 .c-button--alpha:hover:not(:disabled) {
   background-color: $app-color-alpha--dark;
 
-  animation-name: hover--alpha;
-  animation-duration: 0.3s;
+  transition: background-color $small-transition-time;
 }
 
 .c-button--beta {
@@ -36,24 +35,5 @@
 .c-button--beta:hover:not(:disabled) {
   background-color: $app-color-beta--dark;
 
-  animation-name: hover--beta;
-  animation-duration: 0.3s;
-}
-
-@keyframes hover--alpha {
-  0% {
-    background-color: $app-color-alpha;
-  }
-  100% {
-    background-color: $app-color-alpha--dark;
-  }
-}
-
-@keyframes hover--beta {
-  0% {
-    background-color: $app-color-beta;
-  }
-  100% {
-    background-color: $app-color-beta--dark;
-  }
+  transition: background-color $small-transition-time;
 }
