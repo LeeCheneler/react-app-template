@@ -18,10 +18,25 @@ This react app comes with a lightweight [express](https://www.npmjs.com/package/
 
 ### Copy the template to a new repository on GitHub
 
-1. `git clone --bare https://github.com/leecheneler/react-app-template`
-2. `cd react-app-template.git`
-3. `git push --mirror https://github.com/leecheneler/my-new-app`
-4. Delete the bare repo you pulled down and clone your new repo :)
+### Initialise a new project with this template
+1. Make a copy of react-app-template for your app and step into it
+```
+> git clone https://github.com/leecheneler/react-app-template
+> rm -rf react-app-template/.git
+> mv react-app-template my-app
+> cd my-app
+```
+2. Initialise a git respository and commit to it
+```
+> git init
+> git add .
+> git commit -m "initial commit"
+```
+3. Push to remove git server such as github
+```
+> git remote add origin git@github.com:LeeCheneler/my-app.git
+> git push -u origin master
+```
 
 ### Installing dependencies
 `yarn install`
