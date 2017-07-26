@@ -12,7 +12,7 @@ app.use(helmet())
 app.use(compression())
 
 // Serve static files from the public folder (js, css, images, etc)
-const publicPath = path.join(__dirname, 'public')
+const publicPath = path.join(process.cwd(), 'public')
 app.use(express.static(publicPath))
 
 // Serve SPA web app on all routes by default
