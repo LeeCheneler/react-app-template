@@ -89,7 +89,6 @@ const common = {
         loader: 'file-loader?name=[name].[chunkhash].[ext]'
       },
       // Load svgs in, provides an imported object with an id property
-      // (can be used easily by providng the object to the provided SVGIcon component)
       {
         test: /\.svg$/i,
         exclude: /node_modules/,
