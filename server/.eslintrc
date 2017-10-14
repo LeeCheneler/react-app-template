@@ -1,0 +1,15 @@
+{
+  "env": {
+    "node": true,
+    "jest": true,
+    "es6": true
+  },
+  "rules": {
+    "arrow-body-style": ["off"],
+    "comma-dangle": ["off"],
+    "linebreak-style": ["off"],
+    "max-len": ["error", 125],
+    "semi": ["error", "never"],
+    "quotes": ["error", "single"]
+  }
+}

@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "React app template server",
   "scripts": {
-    "start": "node index.js --port 3000"
+    "start": "node index.js --port 3000",
+    "test": "jest",
+    "test-watch": "jest --watch",
+    "coverage": "jest --coverage",
+    "lint": "eslint . --ext .js,.mjs"
   },
   "dependencies": {
     "compression": "^1.7.1",
@@ -18,5 +22,9 @@
     "moduleDirectories": [
       "node_modules"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^4.9.0",
+    "jest": "^21.2.1"
   }
 }
