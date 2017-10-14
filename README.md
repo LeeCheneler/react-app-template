@@ -34,33 +34,33 @@ The React web app is located within the `/app` folder.
 
 `cd app`
 
-### Installing dependencies
+#### Installing dependencies
 
 `yarn install`
 
-### Start the app with webpack
+#### Start the app with webpack
 
 `yarn start`
 
-### Build the app into a `/dist` folder
+#### Build the app into a `/dist` folder
 
 This also runs the unit tests and linting
 
 `yarn build`
 
-### Run unit tests
+#### Run unit tests
 
 `yarn test`
 
-### Run unit tests in watch mode
+#### Run unit tests in watch mode
 
 `yarn test-watch`
 
-### Get test coverage report
+#### Get test coverage report
 
 `yarn coverage`
 
-### Lint javascript and sass
+#### Lint javascript and sass
 
 `yarn lint`
 
@@ -70,13 +70,19 @@ The Express app is located within the `/server` folder.
 
 `cd server`
 
-### Installing dependencies
+#### Installing dependencies
 
 `yarn install`
 
-### Start Express server
+#### Start Express server
 
 `yarn start`
+
+## Build docker container
+
+Your react app and express app can easily be bundled up by using the provided dockerfile.
+
+`docker build -t your-tag:v1 .`
 
 ## Remove dockerized express server
 
