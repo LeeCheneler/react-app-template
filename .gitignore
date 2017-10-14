@@ -37,10 +37,13 @@ jspm_packages
 .node_repl_history
 
 # build output
-express/public
+dist
 
 # jest coverage
 coverage
 
 # stats
 stats.json
+
+# server public
+server/public
