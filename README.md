@@ -78,17 +78,15 @@ The Express app is located within the `/server` folder.
 
 `yarn start`
 
-## Build docker container
+## Build the app
 
-Your react app and express app can easily be bundled up by using the provided dockerfile.
+#### Build app and bundle with server
+
+`sh build.sh`
+
+#### Build docker image
 
 `docker build -t your-tag:v1 .`
-
-## Remove dockerized express server
-
-Not everyone will want to host their app with Express and Docker.
-
-`rm -rf server && rm Dockerfile`
 
 ## Offline support with service workers
 
