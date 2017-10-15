@@ -6,7 +6,7 @@ const merge = require('webpack-merge')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const OfflinePlugin = require('offline-plugin')
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 
 // Best to use path.join and the variable '__dirname' to ensure
 // compatible paths across all file systems (windows/mac/linux)
@@ -44,7 +44,22 @@ const common = {
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        use: ['babel-loader']
+        use: 'babel-loader'
+      },
+      {
+        test: /\.bundle.jsx?$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'bundle-loader',
+            options: {
+              lazy: true
+            }
+          },
+          {
+            loader: 'babel-loader'
+          }
+        ]
       },
       // Use html-loader for .html files
       {
