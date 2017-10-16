@@ -16,7 +16,9 @@ import buildStore from 'store'
 import App from 'modules/App'
 
 // Configure service work for good offline experience
-OfflinePluginRuntime.install()
+if (process.env.NODE_ENV === 'production') {
+  OfflinePluginRuntime.install()
+}
 
 // Configure store, it uses connected-react-router under the hood to hook up rooting changes
 const history = createHistory()

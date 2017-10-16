@@ -41,12 +41,7 @@ class AsyncBundle extends React.Component {
 }
 
 AsyncBundle.propTypes = {
-  // eslint-disable-next-line react/require-default-props
-  children: T.oneOfType([
-    T.shape({}),
-    T.func,
-    T.string
-  ]),
+  children: T.func.isRequired,
   load: T.func.isRequired
 }
 

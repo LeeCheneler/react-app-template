@@ -2,19 +2,9 @@ import React from 'react'
 import { Route, Switch } from 'react-router'
 import { Link } from 'react-router-dom'
 
-import AsyncBundle from 'components/common/AsyncBundle'
+import AsyncComponent from 'components/async/AsyncComponent'
 import loadRouteOne from 'modules/RouteOne/index.bundle'
 import loadRouteTwo from 'modules/RouteTwo/index.bundle'
-
-const RouteOne = props =>
-  <AsyncBundle load={loadRouteOne}>
-    {Comp => <Comp {...props} />}
-  </AsyncBundle>
-
-const RouteTwo = props =>
-  <AsyncBundle load={loadRouteTwo}>
-    {Comp => <Comp {...props} />}
-  </AsyncBundle>
 
 const App = () =>
   <div>
@@ -29,8 +19,8 @@ const App = () =>
       </ul>
     </nav>
     <Switch>
-      <Route path="/route-one" component={RouteOne} />
-      <Route path="/route-two" component={RouteTwo} />
+      <Route path="/route-one" component={() => <AsyncComponent load={loadRouteOne} />} />
+      <Route path="/route-two" component={() => <AsyncComponent load={loadRouteTwo} />} />
     </Switch>
   </div>
 
