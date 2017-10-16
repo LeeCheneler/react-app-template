@@ -18,9 +18,6 @@ const paths = {
 
 // Common webpack config that is always applied
 const common = {
-  // babel-polyfill defined as dependency for app's entry point
-  // Vendor has common imports and is chunked out
-  // Polyfill is chunked out
   entry: {
     app: path.join(paths.src, '/index.jsx')
   },

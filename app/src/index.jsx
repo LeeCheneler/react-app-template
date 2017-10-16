@@ -1,3 +1,6 @@
+// Iport polyfill file
+import 'polyfill'
+
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
@@ -27,7 +30,7 @@ const store = buildStore(history)
 // Get the root element to bootstrap the app into
 const mountElement = document.getElementById('root')
 
-// Render, wrp app in redux's <Provider /> and react-router-redux's <ConnectedRouter />
+// Render, wrap app in redux's <Provider /> and react-router-redux's <ConnectedRouter />
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
