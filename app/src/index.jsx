@@ -1,3 +1,6 @@
+// Iport polyfill file
+import 'polyfill'
+
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
@@ -16,7 +19,9 @@ import buildStore from 'store'
 import App from 'modules/App'
 
 // Configure service work for good offline experience
-OfflinePluginRuntime.install()
+if (process.env.NODE_ENV === 'production') {
+  OfflinePluginRuntime.install()
+}
 
 // Configure store, it uses connected-react-router under the hood to hook up rooting changes
 const history = createHistory()
@@ -25,7 +30,7 @@ const store = buildStore(history)
 // Get the root element to bootstrap the app into
 const mountElement = document.getElementById('root')
 
-// Render, wrp app in redux's <Provider /> and react-router-redux's <ConnectedRouter />
+// Render, wrap app in redux's <Provider /> and react-router-redux's <ConnectedRouter />
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>

@@ -6,7 +6,7 @@ const merge = require('webpack-merge')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const OfflinePlugin = require('offline-plugin')
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 
 // Best to use path.join and the variable '__dirname' to ensure
 // compatible paths across all file systems (windows/mac/linux)
@@ -18,13 +18,8 @@ const paths = {
 
 // Common webpack config that is always applied
 const common = {
-  // babel-polyfill defined as dependency for app's entry point
-  // Vendor has common imports and is chunked out
-  // Polyfill is chunked out
   entry: {
-    app: ['babel-polyfill', path.join(paths.src, '/index.jsx')],
-    vendor: path.join(paths.src, '/vendor.js'),
-    polyfill: 'babel-polyfill'
+    app: path.join(paths.src, '/index.jsx')
   },
   // Output the built apps javascript and adds a chunkhash to the file name for cache busting
   output: {
@@ -44,7 +39,22 @@ const common = {
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        use: ['babel-loader']
+        use: 'babel-loader'
+      },
+      {
+        test: /\.bundle.jsx?$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'bundle-loader',
+            options: {
+              lazy: true
+            }
+          },
+          {
+            loader: 'babel-loader'
+          }
+        ]
       },
       // Use html-loader for .html files
       {
@@ -127,11 +137,6 @@ const common = {
     ]
   },
   plugins: [
-    // Chunk out polyfills and vendor into a seperate file
-    new webpack.optimize.CommonsChunkPlugin({
-      names: ['vendor', 'polyfill'],
-      filename: '[name].[chunkhash].js'
-    }),
     // Configure ExtractTextPlugin so it adds the chunkhash of the css file to its file
     // name for cache busting
     new ExtractTextPlugin('[name].[chunkhash].css'),

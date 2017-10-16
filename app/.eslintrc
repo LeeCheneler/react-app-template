@@ -17,6 +17,10 @@
     "react/jsx-wrap-multilines": ["off"],
     "semi": ["error", "never"],
     "quotes": ["error", "single"],
+    "jsx-a11y/anchor-is-valid": ["error", {
+      "components": ["Link"],
+      "specialLink": ["to"]
+    }]
   },
   "settings": {
     "import/resolver": "webpack"
