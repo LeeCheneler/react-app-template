@@ -28,7 +28,7 @@ class AsyncBundle extends React.Component {
     props.load((mod) => {
       this.setState({
         // Handle both es imports and cjs
-        mod: mod.default ? mod.default : mod
+        mod: mod.default || mod
       })
     })
   }
