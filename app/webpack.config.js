@@ -103,7 +103,7 @@ const common = {
       {
         test: /\.(jpe?g|png|gif)$/i,
         exclude: /node_modules/,
-        loader: 'file-loader?name=[name].[chunkhash].[ext]'
+        loader: 'file-loader?name=[name].[hash].[ext]'
       },
       // Load svgs in, provides an imported object with an id property
       // (can be used easily by providng the object to the provided SVGIcon component)

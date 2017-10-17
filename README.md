@@ -11,9 +11,8 @@ This react app comes with a lightweight node Express app ready configured to rou
 
 1. Make a copy of react-app-template for your app and step into it
 ```
-> git clone https://github.com/leecheneler/react-app-template
-> rm -rf react-app-template/.git
-> mv react-app-template my-app
+> git clone https://github.com/leecheneler/react-app-template my-app
+> rm -rf my-app/.git
 > cd my-app
 ```
 2. Initialise a git respository and commit to it
