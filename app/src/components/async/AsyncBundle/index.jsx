@@ -36,13 +36,14 @@ class AsyncBundle extends React.Component {
   render() {
     return this.state.mod
       ? this.props.children(this.state.mod)
-      : <span>loading...</span>
+      : this.props.loadingComponent()
   }
 }
 
 AsyncBundle.propTypes = {
   children: T.func.isRequired,
-  load: T.func.isRequired
+  load: T.func.isRequired,
+  loadingComponent: T.func.isRequired
 }
 
 export default AsyncBundle

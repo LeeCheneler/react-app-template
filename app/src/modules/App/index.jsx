@@ -3,24 +3,28 @@ import { Route, Switch } from 'react-router'
 import { Link } from 'react-router-dom'
 
 import AsyncComponent from 'components/async/AsyncComponent'
-import loadRouteOne from 'modules/RouteOne/index.bundle'
-import loadRouteTwo from 'modules/RouteTwo/index.bundle'
+
+import routes from './routes'
 
 const App = () =>
   <div>
     <nav>
       <ul className="pl-o-list">
-        <li className="pl-o-list__item">
-          <Link to="/route-one">Route One</Link>
-        </li>
-        <li className="pl-o-list__item">
-          <Link to="/route-two">Route Two</Link>
-        </li>
+        {routes.map(route => (
+          <li key={route.path} className="pl-o-list__item">
+            <Link to={route.path}>{route.title}</Link>
+          </li>
+        ))}
       </ul>
     </nav>
     <Switch>
-      <Route path="/route-one" component={() => <AsyncComponent load={loadRouteOne} />} />
-      <Route path="/route-two" component={() => <AsyncComponent load={loadRouteTwo} />} />
+      {routes.map(route => (
+        <Route
+          key={route.path}
+          path={route.path}
+          component={props => <AsyncComponent {...props} load={route.load} />}
+        />
+      ))}
     </Switch>
   </div>
 

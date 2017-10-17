@@ -3,9 +3,11 @@ import T from 'prop-types'
 
 import AsyncBundle from 'components/async/AsyncBundle'
 
+import Loading from 'components/common/Loading'
+
 const AsyncComponent = props =>
-  <AsyncBundle load={props.load}>
-    {Comp => <Comp {...Object.assign({}, props, { load: undefined })} />}
+  <AsyncBundle load={props.load} loadingComponent={Loading}>
+    {Comp => <Comp {...props} />}
   </AsyncBundle>
 
 AsyncComponent.propTypes = {
