@@ -1,0 +1,15 @@
+{
+  "name": "kitten-css",
+  "version": "1.0.0",
+  "description": "ITCSS framework.",
+  "repository": "https://github.com/leecheneler/kitten",
+  "author": "leecheneler",
+  "license": "MIT",
+  "scripts": {
+    "lint": "stylelint **/*.scss"
+  },
+  "devDependencies": {
+    "stylelint": "^8.2.0",
+    "stylelint-config-nebula": "^0.2.0"
+  }
+}
