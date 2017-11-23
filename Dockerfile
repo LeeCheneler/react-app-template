@@ -5,7 +5,7 @@ WORKDIR /app
 
 COPY . /app
 
-RUN ["sh", "build.sh"]
+RUN ["./build.sh"]
 
 # Compose final container
 FROM node:8.7-alpine
